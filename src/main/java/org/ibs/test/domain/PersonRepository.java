@@ -8,12 +8,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Calendar;
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public interface PersonRepository extends CrudRepository<Person, Long> {
 
     List<Person> findByLastName(String lastName);
     List<Person> findByBirthday(Calendar birthday);
-    List<Person> findByDepartment(Department department);
+    List<Person> findByDepartmentId(Long departmentId);
 }
