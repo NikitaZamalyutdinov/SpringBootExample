@@ -65,3 +65,40 @@
                       nullable: false
                       foreignKeyName: fk_people_departments
                       references: departments(id)
+          - insert:
+              tableName: departments
+              columns:
+                - column:
+                    name: id
+                    value: 1
+                - column:
+                    name: full_name
+                    value: Backend Development
+                - column:
+                    name: short_name
+                    value: backend
+                - column:
+                    name: phone_numbers
+                    value: 111-222
+          - insert:
+              tableName: people
+              columns:
+                - column:
+                    name: id
+                    value: 1
+                - column:
+                    name: first_name
+                    value: Nikita
+                - column:
+                    name: last_name
+                    value: Zamalyutdinov
+                - column:
+                    name: middle_name
+                    value: Valerievich
+                - column:
+                    name: birthday
+                    value: "1992-04-13T21:00:00.000+00:00"
+                - column:
+                    name: department_id
+                    value: 1
+
