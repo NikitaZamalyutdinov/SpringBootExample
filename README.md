@@ -1,0 +1,1 @@
+Example of usage SpringBoot and SpringDataRest.

@@ -1,0 +1,67 @@
+  databaseChangeLog:
+    - changeSet:
+        id: Initialize DB
+        author: ZNikita
+        changes:
+          - createTable:
+              tableName: departments
+              columns:
+                - column:
+                    name: id
+                    type: int
+                    autoIncrement: true
+                    constraints:
+                      primaryKey: true
+                      nullable: false
+                - column:
+                    name: full_name
+                    type: varchar(255)
+                    constraints:
+                      nullable: false
+                - column:
+                    name: short_name
+                    type: varchar(255)
+                    constraints:
+                      nullable: false
+                - column:
+                    name: phone_numbers
+                    type: varchar(255)
+                    constraints:
+                      nullable: false
+          - createTable:
+              tableName: people
+              columns:
+                - column:
+                    name: id
+                    type: int
+                    autoIncrement: true
+                    constraints:
+                      primaryKey: true
+                      nullable: false
+                - column:
+                    name: first_name
+                    type: varchar(255)
+                    constraints:
+                      nullable: false
+                - column:
+                    name: last_name
+                    type: varchar(255)
+                    constraints:
+                      nullable: false
+                - column:
+                    name: middle_name
+                    type: varchar(255)
+                    constraints:
+                      nullable: true
+                - column:
+                    name: birthday
+                    type: date
+                    constraints:
+                      nullable: false
+                - column:
+                    name: department_id
+                    type: int
+                    constraints:
+                      nullable: false
+                      foreignKeyName: fk_people_departments
+                      references: departments(id)
