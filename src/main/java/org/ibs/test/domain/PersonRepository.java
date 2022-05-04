@@ -4,6 +4,7 @@ import org.ibs.test.domain.entity.Department;
 import org.ibs.test.domain.entity.Person;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Calendar;
 import java.util.List;
