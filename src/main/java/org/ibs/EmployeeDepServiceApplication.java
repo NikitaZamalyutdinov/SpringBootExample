@@ -1,6 +1,6 @@
-package org.ibs.test;
+package org.ibs;
 
-import org.ibs.test.domain.PersonRepository;
+import org.ibs.domain.PersonRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;

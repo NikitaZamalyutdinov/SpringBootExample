@@ -1,6 +1,6 @@
-package org.ibs.test.config;
+package org.ibs.config;
 
-import org.ibs.test.convert.StringToCalendarConverter;
+import org.ibs.utils.convert.StringToCalendarConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;

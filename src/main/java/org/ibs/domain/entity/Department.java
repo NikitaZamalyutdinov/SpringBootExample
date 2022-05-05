@@ -1,4 +1,4 @@
-package org.ibs.test.domain.entity;
+package org.ibs.domain.entity;
 
 import lombok.Getter;
 import lombok.Setter;

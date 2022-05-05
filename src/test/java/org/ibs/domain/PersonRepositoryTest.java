@@ -1,6 +1,6 @@
-package org.ibs.test.domain;
+package org.ibs.domain;
 
-import org.ibs.test.domain.entity.Person;
+import org.ibs.domain.entity.Person;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

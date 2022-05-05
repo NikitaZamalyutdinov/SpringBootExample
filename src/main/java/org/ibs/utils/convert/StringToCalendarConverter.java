@@ -1,4 +1,4 @@
-package org.ibs.test.convert;
+package org.ibs.utils.convert;
 
 import lombok.SneakyThrows;
 import org.springframework.core.convert.converter.Converter;

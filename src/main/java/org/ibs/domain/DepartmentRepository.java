@@ -1,6 +1,6 @@
-package org.ibs.test.domain;
+package org.ibs.domain;
 
-import org.ibs.test.domain.entity.Department;
+import org.ibs.domain.entity.Department;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

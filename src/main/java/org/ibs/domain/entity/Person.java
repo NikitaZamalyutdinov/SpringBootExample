@@ -1,11 +1,9 @@
-package org.ibs.test.domain.entity;
+package org.ibs.domain.entity;
 
-import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.rest.core.annotation.Description;
 import org.springframework.data.rest.core.annotation.RestResource;
-import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
 import java.util.Calendar;
