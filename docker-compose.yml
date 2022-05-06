@@ -6,6 +6,8 @@ services:
     container_name: app
     ports:
       - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
     depends_on:
       - db
     networks:
@@ -14,7 +16,7 @@ services:
     image: 'postgres:14-alpine'
     container_name: postgresql
     environment:
-      - POSTGRES_USER=postgres
+      - POSTGRES_USER=postgres  # TODO: Remove open secrets
       - POSTGRES_PASSWORD=postgres
     command:
       -c listen_addresses='*' # Updates postgresql.conf
