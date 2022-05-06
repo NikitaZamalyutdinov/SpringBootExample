@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    container_name: app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    networks:
+      - my-network
+  db:
+    image: 'postgres:14-alpine'
+    container_name: postgresql
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    command:
+      -c listen_addresses='*' # Updates postgresql.conf
+    networks:
+      - my-network
+
+networks:
+  my-network:
+
+

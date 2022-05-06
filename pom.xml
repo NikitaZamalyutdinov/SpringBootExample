@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.ibs</groupId>
-	<artifactId>test</artifactId>
+	<artifactId>dep-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>EmployeeDepService</name>
 	<description>Demo project for Spring Boot</description>
