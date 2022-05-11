@@ -3,11 +3,13 @@ version: '3'
 services:
   app:
     build: .
-    container_name: app
+    container_name: employee-dep-service
     ports:
       - "8080:8080"
     environment:
       - SPRING_PROFILES_ACTIVE=prod
+    volumes:
+      - employee-dep-service-logs:/logs
     depends_on:
       - db
     networks:
@@ -25,5 +27,8 @@ services:
 
 networks:
   my-network:
+
+volumes:
+    employee-dep-service-logs:
 
 
