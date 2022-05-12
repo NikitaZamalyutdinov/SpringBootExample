@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.core.annotation.*;
 import org.springframework.stereotype.Component;
 
+// Note: WebMvcConfigurer and Interceptor DOESN'T work with Spring Data REST (https://github.com/spring-projects/spring-data-rest/issues/1522)
 @Component
 @RepositoryEventHandler()
 public class PersonEventHandler {
@@ -24,6 +25,6 @@ public class PersonEventHandler {
 
     @HandleBeforeSave
     public void handlePersonUpdate(Person p) {
-        messageProducer.sendUpdatedPerson(p);
+        messageProducer.sendAddedPerson(p);
     }
 }

@@ -40,7 +40,7 @@ public class PersonMessageProducer extends KafkaProducer<Person> {
     }
 
     public void sendDeletedPerson(Person person) {
-        sendMessage("Delete person with", person);
+        sendMessage("Deleted person with", person);
     }
 
     public void sendUpdatedPerson(Person person) {
