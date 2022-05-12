@@ -9,7 +9,7 @@ import java.util.Calendar;
 import java.util.List;
 
 @Repository
-//@RepositoryRestResource(path = "people")
+@RepositoryRestResource(path = "people")
 public interface PersonRepository extends CrudRepository<Person, Long> {
 
     List<Person> findByLastName(String lastName);
