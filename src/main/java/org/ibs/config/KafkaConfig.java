@@ -1,8 +1,8 @@
 package org.ibs.config;
 
-import com.fasterxml.jackson.databind.ser.std.StringSerializer;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.producer.ProducerConfig;
+import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
@@ -20,7 +20,7 @@ public class KafkaConfig {
     private String bootstrapAddress;
 
     @Bean
-    public NewTopic newTopic(@Value("${com.ibs.kafka.topic.name}") String topicName) {
+    public NewTopic newTopic(@Value("${com.ibs.kafka.topic.person}") String topicName) {
         return new NewTopic(topicName, 1, (short) 1);
     }
 
