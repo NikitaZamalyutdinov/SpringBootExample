@@ -15,7 +15,7 @@ public class PersonEventHandler {
 
     @HandleBeforeCreate
     public void handlePersonSave(Person p) {
-        messageProducer.sendUpdatedPerson(p);
+        messageProducer.sendAddedPerson(p);
     }
 
     @HandleBeforeDelete
@@ -25,6 +25,6 @@ public class PersonEventHandler {
 
     @HandleBeforeSave
     public void handlePersonUpdate(Person p) {
-        messageProducer.sendAddedPerson(p);
+        messageProducer.sendUpdatedPerson(p);
     }
 }

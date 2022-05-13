@@ -19,8 +19,7 @@ public class PersonMessageProducer extends KafkaProducer<Person> {
 
     @Override
     public void sendMessage(String prefix, Person entity) {
-        String msg = String.format("%s name '%s'", prefix, entity.getFirstName());
-        ListenableFuture<SendResult<String, String>> future = kafkaTemplate.send(personTopic, msg);
+        ListenableFuture<SendResult<String, Person>> future = kafkaTemplate.send(personTopic, prefix, entity);
         future.addCallback(new ListenableFutureCallback<>() {
             @Override
             public void onFailure(Throwable ex) {
@@ -28,22 +27,24 @@ public class PersonMessageProducer extends KafkaProducer<Person> {
             }
 
             @Override
-            public void onSuccess(SendResult<String, String> result) {
-                String logMessage = String.format("Added message '%s' to topic '%s'.", msg, personTopic);
+            public void onSuccess(SendResult<String, Person> result) {
+                String logMessage = String.format("Added message '%s' to topic '%s'.",
+                        result.getProducerRecord().key() + ":" + result.getProducerRecord().value(),
+                        personTopic);
                 LOGGER.debug(logMessage);
             }
         });
     }
 
-    public void sendAddedPerson(Person person) {
-        sendMessage("Added person with", person);
+    void sendAddedPerson(Person person) {
+        sendMessage("Added person", person);
     }
 
-    public void sendDeletedPerson(Person person) {
-        sendMessage("Deleted person with", person);
+    void sendDeletedPerson(Person person) {
+        sendMessage("Deleted person", person);
     }
 
-    public void sendUpdatedPerson(Person person) {
-        sendMessage("Updated person with", person);
+    void sendUpdatedPerson(Person person) {
+        sendMessage("Updated person", person);
     }
 }
