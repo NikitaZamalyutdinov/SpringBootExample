@@ -3,6 +3,12 @@
         id: Initialize DB
         author: ZNikita
         changes:
+          - createSequence:
+              dataType: int
+              incrementBy: 2
+              minValue: 1
+              sequenceName: hibernate_sequence
+              startValue: 1
           - createTable:
               tableName: departments
               columns:
@@ -65,6 +71,48 @@
                       nullable: false
                       foreignKeyName: fk_people_departments
                       references: departments(id)
+          - createTable:
+              tableName: new_people
+              columns:
+                - column:
+                    name: id
+                    type: int
+                    autoIncrement: true
+                    constraints:
+                      primaryKey: true
+                      nullable: false
+                - column:
+                    name: first_name
+                    type: varchar(255)
+                    constraints:
+                      nullable: false
+                - column:
+                    name: last_name
+                    type: varchar(255)
+                    constraints:
+                      nullable: false
+                - column:
+                    name: middle_name
+                    type: varchar(255)
+                    constraints:
+                      nullable: true
+                - column:
+                    name: birthday
+                    type: date
+                    constraints:
+                      nullable: false
+                - column:
+                    name: department_id
+                    type: int
+                    constraints:
+                      nullable: false
+                      foreignKeyName: fk_people_departments_2
+                      references: departments(id)
+                - column:
+                    name: record_create_date
+                    type: date
+                    constraints:
+                      nullable: false
           - insert:
               tableName: departments
               columns:
