@@ -3,12 +3,6 @@
         id: Initialize DB
         author: ZNikita
         changes:
-          - createSequence:
-              dataType: int
-              incrementBy: 2
-              minValue: 1
-              sequenceName: hibernate_sequence
-              startValue: 1
           - createTable:
               tableName: departments
               columns:
@@ -71,6 +65,11 @@
                       nullable: false
                       foreignKeyName: fk_people_departments
                       references: departments(id)
+                - column:
+                    name: month_salary
+                    type: currency
+                    constraints:
+                      nullable: false
           - createTable:
               tableName: new_people
               columns:
@@ -149,4 +148,7 @@
                 - column:
                     name: department_id
                     value: 1
+                - column:
+                    name: month_salary
+                    value: 200000
 

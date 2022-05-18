@@ -3,9 +3,10 @@ package org.ibs.domain.entity;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.data.rest.core.annotation.Description;
+import org.springframework.data.rest.core.annotation.RestResource;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Calendar;
 
 @Getter
@@ -13,7 +14,20 @@ import java.util.Calendar;
 @ToString
 @Entity
 @Table(name = "new_people")
-public class NewPerson extends Person {
+public class NewPerson {
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    Long id;
+    String firstName;
+    String lastName;
+    String middleName; // отчество
+    Calendar birthday;
+
+    @ManyToOne()
+    @JoinColumn(name = "department_id", referencedColumnName = "id")
+    @RestResource(path = "department", rel="department", description = @Description("Url to department."))
+    Department department;
 
     Calendar recordCreateDate;
 

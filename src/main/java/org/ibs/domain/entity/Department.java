@@ -5,6 +5,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Getter
 @Setter
@@ -18,4 +19,8 @@ public class Department {
     String fullName;
     String shortName;
     String phoneNumbers;
+
+    @OneToMany(mappedBy = "department")
+    @ToString.Exclude
+    Collection<Person> people;
 }

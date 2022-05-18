@@ -1,10 +1,8 @@
-package org.ibs.middleware;
+package org.ibs.middleware.messaging;
 
 import org.ibs.domain.entity.Person;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.stereotype.Component;
 
 abstract class KafkaProducer<T> {
 

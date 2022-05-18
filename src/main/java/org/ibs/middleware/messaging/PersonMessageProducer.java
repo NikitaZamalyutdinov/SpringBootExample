@@ -1,4 +1,4 @@
-package org.ibs.middleware;
+package org.ibs.middleware.messaging;
 
 import org.ibs.domain.entity.Person;
 import org.slf4j.Logger;
