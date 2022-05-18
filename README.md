@@ -1,4 +1,10 @@
-Example of usage SpringBoot and SpringDataRest.
+Example of usage SpringBoot and SpringDataRest with different kind of integrations.
+### Goals:
+1) ✅ Create REST service with all CRUD operations on entities Person and Department
+2) ✅ Docker integration (service + PostgreSQL)
+3) ✅ Kafka integration (notify Person changes and consume NewPerson)
+4) ✅ Public SOAP calculator integration (calculate Department expenses)
+5) ❌ Setup DB versioning in Hibernate
 
 ### Development:
 
