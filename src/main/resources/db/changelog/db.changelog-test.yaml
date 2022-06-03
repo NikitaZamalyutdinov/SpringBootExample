@@ -1,0 +1,265 @@
+  databaseChangeLog:
+    - changeSet:
+        id: Initialize DB
+        author: ZNikita
+        changes:
+          - createTable:
+              tableName: departments
+              columns:
+                - column:
+                    name: id
+                    type: int
+                    autoIncrement: true
+                    constraints:
+                      primaryKey: true
+                      nullable: false
+                - column:
+                    name: full_name
+                    type: varchar(255)
+                    constraints:
+                      nullable: false
+                - column:
+                    name: short_name
+                    type: varchar(255)
+                    constraints:
+                      nullable: false
+                - column:
+                    name: phone_numbers
+                    type: varchar(255)
+                    constraints:
+                      nullable: false
+          - createTable:
+              tableName: people
+              columns:
+                - column:
+                    name: id
+                    type: int
+                    autoIncrement: true
+                    constraints:
+                      primaryKey: true
+                      nullable: false
+                - column:
+                    name: first_name
+                    type: varchar(255)
+                    constraints:
+                      nullable: false
+                - column:
+                    name: last_name
+                    type: varchar(255)
+                    constraints:
+                      nullable: false
+                - column:
+                    name: middle_name
+                    type: varchar(255)
+                    constraints:
+                      nullable: true
+                - column:
+                    name: birthday
+                    type: date
+                    constraints:
+                      nullable: false
+                - column:
+                    name: department_id
+                    type: int
+                    constraints:
+                      nullable: false
+                      foreignKeyName: fk_people_departments
+                      references: departments(id)
+                - column:
+                    name: month_salary
+                    type: currency
+                    constraints:
+                      nullable: false
+          - createTable:
+              tableName: people_history
+              columns:
+                - column:
+                    name: id
+                    type: int
+                - column:
+                    name: version_id
+                    type: int
+                - column:
+                    name: active
+                    type: boolean
+                - column:
+                    name: first_name
+                    type: varchar(255)
+                    constraints:
+                      nullable: false
+                - column:
+                    name: last_name
+                    type: varchar(255)
+                    constraints:
+                      nullable: false
+                - column:
+                    name: middle_name
+                    type: varchar(255)
+                    constraints:
+                      nullable: true
+                - column:
+                    name: birthday
+                    type: date
+                    constraints:
+                      nullable: false
+                - column:
+                    name: department_id
+                    type: int
+                - column:
+                    name: month_salary
+                    type: currency
+                    constraints:
+                      nullable: false
+                - column:
+                    name: date_created
+                    type: date
+                    constraints:
+                      nullable: false
+          - createTable:
+              tableName: new_people
+              columns:
+                - column:
+                    name: id
+                    type: int
+                    autoIncrement: true
+                    constraints:
+                      primaryKey: true
+                      nullable: false
+                - column:
+                    name: first_name
+                    type: varchar(255)
+                    constraints:
+                      nullable: false
+                - column:
+                    name: last_name
+                    type: varchar(255)
+                    constraints:
+                      nullable: false
+                - column:
+                    name: middle_name
+                    type: varchar(255)
+                    constraints:
+                      nullable: true
+                - column:
+                    name: birthday
+                    type: date
+                    constraints:
+                      nullable: false
+                - column:
+                    name: department_id
+                    type: int
+                    constraints:
+                      nullable: false
+                      foreignKeyName: fk_people_departments_2
+                      references: departments(id)
+                - column:
+                    name: record_create_date
+                    type: date
+                    constraints:
+                      nullable: false
+          - insert:
+              tableName: departments
+              columns:
+                - column:
+                    name: id
+                    value: 1
+                - column:
+                    name: full_name
+                    value: Backend Development
+                - column:
+                    name: short_name
+                    value: backend
+                - column:
+                    name: phone_numbers
+                    value: 111-222
+          - insert:
+              tableName: people
+              columns:
+                - column:
+                    name: id
+                    value: 1
+                - column:
+                    name: first_name
+                    value: Nikita
+                - column:
+                    name: last_name
+                    value: Zamalyutdinov
+                - column:
+                    name: middle_name
+                    value: Valerievich
+                - column:
+                    name: birthday
+                    value: "1992-04-13"
+                - column:
+                    name: department_id
+                    value: 1
+                - column:
+                    name: month_salary
+                    value: 200000
+          - insert:
+              tableName: people_history
+              columns:
+                - column:
+                    name: id
+                    value: 1
+                - column:
+                    name: version_id
+                    value: 1
+                - column:
+                    name: first_name
+                    value: Nikita
+                - column:
+                    name: last_name
+                    value: Zamalyutdinov
+                - column:
+                    name: middle_name
+                    value: Valerievich
+                - column:
+                    name: birthday
+                    value: "1992-04-13"
+                - column:
+                    name: department_id
+                    value: 1
+                - column:
+                    name: month_salary
+                    value: 200000
+                - column:
+                    name: date_created
+                    value: "2022-05-19"
+                - column:
+                    name: active
+                    value: true
+          - insert:
+              tableName: people_history
+              columns:
+                - column:
+                    name: id
+                    value: 1
+                - column:
+                    name: version_id
+                    value: 2
+                - column:
+                    name: first_name
+                    value: Nikita
+                - column:
+                    name: last_name
+                    value: Zamalyutdinov
+                - column:
+                    name: middle_name
+                    value: Valerievich
+                - column:
+                    name: birthday
+                    value: "1992-04-13"
+                - column:
+                    name: department_id
+                    value: 1
+                - column:
+                    name: month_salary
+                    value: 250000
+                - column:
+                    name: date_created
+                    value: "2022-05-19"
+                - column:
+                    name: active
+                    value: true
+
